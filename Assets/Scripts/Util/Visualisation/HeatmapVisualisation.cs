@@ -133,7 +133,7 @@ public class HeatmapVisualisation
 
     private Vector3Int CalculateMinBound(Vector3Int positionInParticleGrid)
     {
-        Vector3Int min = new();
+        Vector3Int min = new Vector3Int();
 
         min.x = (int)(positionInParticleGrid.x - settings.maxColoringDistance / settings.particleDistance - 1);
         min.z = (int)(positionInParticleGrid.z - settings.maxColoringDistance / settings.particleDistance - 1);
@@ -152,7 +152,7 @@ public class HeatmapVisualisation
 
     private Vector3Int CalculateMaxBound(Vector3Int positionInParticleGrid, Vector3Int sizeInParticles)
     {
-        Vector3Int max = new();
+        Vector3Int max = new Vector3Int();
 
         max.x = (int)(positionInParticleGrid.x + settings.maxColoringDistance / settings.particleDistance + 1);
         max.z = (int)(positionInParticleGrid.z + settings.maxColoringDistance / settings.particleDistance + 1);

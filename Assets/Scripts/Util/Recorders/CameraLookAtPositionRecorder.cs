@@ -16,7 +16,7 @@ public class CameraLookAtPositionRecorder : AbstractEventIntervalRecorder
 
     private IEventWriter eventWriter;
 
-    private readonly Vector3 centerOfScreen = new(0.5F, 0.5F, 0.5F);
+    private readonly Vector3 centerOfScreen = new  Vector3(0.5F, 0.5F, 0.5F);
 
 
     void Awake()

@@ -21,11 +21,11 @@ public class JSONEventReader : IEventReader
 
     List<EventData> IEventReader.ReadEvents()
     {
-        Dictionary<string, EventData> events = new();
+        Dictionary<string, EventData> events = new Dictionary<string, EventData>();
 
         using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-        using (BufferedStream bs = new(fs))
-        using (StreamReader sr = new(bs))
+        using (BufferedStream bs = new BufferedStream(fs))
+        using (StreamReader sr = new StreamReader(bs))
         {
             string line;
             while ((line = sr.ReadLine()) != null)
@@ -53,12 +53,12 @@ public class JSONEventReader : IEventReader
         // if event name is not in the EventData list, new EventData should be created
         if (!events.TryGetValue(baseEvent.EventName, out currentLineEvent))
         {
-            currentLineEvent = new();
+            currentLineEvent = new EventData();
             currentLineEvent.EventName = baseEvent.EventName;
             events.Add(baseEvent.EventName, currentLineEvent);
         }
 
-        MergedEventPosition eventPosition = new();
+        MergedEventPosition eventPosition = new MergedEventPosition();
         eventPosition.Position = baseEvent.Position;
 
         currentLineEvent.Positions.Add(eventPosition);

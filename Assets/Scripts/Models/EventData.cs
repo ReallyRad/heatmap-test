@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// </summary>
 public class EventData
 {
-    public List<MergedEventPosition> Positions = new();
+    public List<MergedEventPosition> Positions = new List<MergedEventPosition>();
 
     public string EventName;
 

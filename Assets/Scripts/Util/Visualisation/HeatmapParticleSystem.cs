@@ -43,7 +43,7 @@ public class HeatmapParticleSystem
             {
                 for (int z = 0; z < sizeInParticles.z; z += 1)
                 {
-                    Particle particle = new();
+                    Particle particle = new Particle();
 
                     Vector3 position = ConvertParticleGridPositionToGlobal(new Vector3Int(x, y, z), settings);
                     particle.position = position;
@@ -66,7 +66,7 @@ public class HeatmapParticleSystem
     /// </summary>
     public void UpdateParticlesInParticleSystem(float[,,] particleColorValues, HeatmapController.Settings settings)
     {
-        List<Particle> particleList = new();
+        List<Particle> particleList = new List<Particle>();
 
         for (int x = 0; x < sizeInParticles.x; x += 1)
         {

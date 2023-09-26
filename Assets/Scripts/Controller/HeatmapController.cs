@@ -22,9 +22,9 @@ public class HeatmapController : MonoBehaviour
 
         public string pathForReadingData;
     }
-    public Settings settings = new();
+    public Settings settings = new Settings();
 
-    public List<EventData> events = new();
+    public List<EventData> events = new List<EventData>();
 
     private IEventReader eventReader;
     private HeatmapVisualisation heatmapVisualisation;
@@ -42,7 +42,7 @@ public class HeatmapController : MonoBehaviour
     /// </summary>
     public void LoadEvents()
     {
-        Stopwatch stopwatch = new();
+        Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
 
         eventReader = new JSONEventReader(settings.pathForReadingData);
@@ -67,7 +67,7 @@ public class HeatmapController : MonoBehaviour
     /// </summary>
     public void InitializeParticleSystem()
     {
-        Stopwatch stopwatch = new();
+        Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
 
         heatmapVisualisation.InitializeParticleSystem(gameObject);
@@ -93,7 +93,7 @@ public class HeatmapController : MonoBehaviour
     public void AddSelectedEventsToHeatmap()
     {
 
-        Stopwatch stopwatch = new();
+        Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
 
         heatmapVisualisation.ResetParticlesColor();
